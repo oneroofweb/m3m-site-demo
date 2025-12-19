@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="M3M GIC Gurgaon - Premium 2.5, 3.5 & 4.5 BHK Apartments at Sector M9, IMT Manesar. Experience luxury living.">
+    <title>M3M GIC Gurgaon | Luxury Apartments</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1920&auto=format&fit=crop">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <style>
+        :root {
+            /* Premium Real Estate Color Palette */
+            --primary: #B8860B; /* Dark Goldenrod */
+            --primary-dark: #966b02;
+            --secondary: #1C1C1C; /* Very Dark Grey/Black */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --text-grey: #666666;
+            --bg-light: #f8f9fa;
+            --highlight-pink: #e91e63; /* For phone highlight as requested */
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; color: var(--text-dark); overflow-x: hidden; padding-top: 76px; }
+
+        /* Utility Classes */
+        .text-primary-custom { color: var(--primary) !important; }
+        .bg-primary-custom { background-color: var(--primary) !important; }
+        .section-padding { padding: 80px 0; }
+        .section-title { margin-bottom: 50px; font-weight: 700; position: relative; display: inline-block; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary); }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary); margin: 10px auto 0; }
+
+        /* Navbar */
+        .navbar { background-color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .navbar-brand { font-weight: 700; color: var(--primary); font-size: clamp(1.2rem, 4vw, 1.6rem); }
+        .nav-link { font-weight: 500; color: var(--secondary); transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--primary); }
+        .navbar-toggler { border: none; padding: 0; font-size: 1.5rem; }
+        .navbar-toggler:focus { box-shadow: none; }
+        .offcanvas-title { color: var(--primary); font-weight: 700; }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            min-height: 450px;
+            background-color: var(--secondary);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 15px;
+            content-visibility: auto;
+        }
+        .hero-title { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 700; margin-bottom: 15px; }
+        .hero-subtitle { font-size: clamp(1rem, 3vw, 1.3rem); margin-bottom: 30px; font-weight: 300; }
+
+        /* Buttons */
+        .btn-custom { padding: 12px 30px; border-radius: 50px; font-weight: 600; text-decoration: none; display: inline-block; margin: 8px; border: 2px solid var(--primary); transition: all 0.3s ease; }
+        .btn-filled { background-color: var(--primary); color: white; }
+        .btn-filled:hover { background-color: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-3px); color: white; }
+        .btn-outline { background-color: transparent; color: white; border-color: white; }
+        .btn-outline:hover { background-color: white; color: var(--primary); transform: translateY(-3px); }
+        
+        .hero-btn-container { display: flex; justify-content: center; gap: 15px; }
+        @media (max-width: 575.98px) {
+            .hero-btn-container { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
+            .hero-btn-container .btn-custom { width: 100%; text-align: center; margin: 5px 0; }
+        }
+
+        /* Animations */
+        .reveal-section { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
+        .reveal-section.visible { opacity: 1; transform: translateY(0); }
+
+        /* About Section */
+        .about-img { border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; object-fit: cover; }
+
+        /* Services/Products Cards */
+        .service-card { border: none; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease; height: 100%; background: #fff; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card-img-top { height: 220px; object-fit: cover; border-bottom: 3px solid var(--primary); }
+        .price-tag { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin: 10px 0; display: block; }
+        .btn-gradient { width: 100%; padding: 12px; border: none; color: white; font-weight: 600; background: linear-gradient(45deg, var(--primary), #d4af37); border-radius: 0 0 15px 15px; transition: opacity 0.3s; text-decoration: none; display: block; text-align: center; }
+        .btn-gradient:hover { opacity: 0.9; color: white; }
+
+        /* Amenities */
+        .amenity-box { background: #fff; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; height: 100%; border-bottom: 3px solid transparent; }
+        .amenity-box:hover { border-bottom-color: var(--primary); transform: translateY(-5px); }
+        .amenity-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+
+        /* Gallery */
+        .gallery-item { position: relative; overflow: hidden; border-radius: 10px; cursor: pointer; height: 250px; width: 100%; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        /* Testimonials */
+        .testimonial-card { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: center; margin: 10px; height: 100%; }
+        .t-img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid var(--primary); }
+        
+        /* FAQ Accordion */
+        .accordion-button:not(.collapsed) { color: var(--primary); background-color: rgba(184, 134, 11, 0.1); }
+        .accordion-button:focus { box-shadow: 0 0 0 0.25rem rgba(184, 134, 11, 0.25); border-color: var(--primary); }
+
+        /* Map */
+        .map-container { width: 100%; height: 350px; line-height: 0; background-color: #eee; }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        /* Contact/NAP */
+        .nap-section { background: #fff; padding: 60px 0; }
+        .nap-item { display: flex; align-items: center; margin-bottom: 30px; }
+        .nap-icon-wrapper { flex-shrink: 0; width: 60px; height: 60px; background-color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; color: #fff; font-size: 24px; }
+        .nap-content h5 { font-weight: 700; margin-bottom: 5px; font-size: 1.1rem; color: var(--secondary); }
+        .nap-content p, .nap-content a { margin: 0; color: var(--text-grey); text-decoration: none; font-size: 1rem; }
+        .highlight-phone { color: var(--highlight-pink) !important; font-weight: 700; }
+
+        /* Footer */
+        .site-footer { background-color: #f1f1f1; color: var(--secondary); padding: 25px 0; font-size: 0.9rem; }
+
+        /* Floating Buttons & Animation */
+        @keyframes radiation { 0% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0.7); transform: scale(1); } 70% { box-shadow: 0 0 0 15px rgba(184, 134, 11, 0); transform: scale(1.05); } 100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); transform: scale(1); } }
+        
+        .float-btn { position: fixed; bottom: 25px; width: 60px; height: 60px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 9999; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s; animation: radiation 2s infinite; }
+        .float-btn:hover { color: #fff; transform: scale(1.1); }
+        .float-wa { background-color: #25D366; right: 20px; animation-name: none; } /* WA usually has own green pulse or none */
+        .float-call { background-color: var(--primary); left: 20px; display: none; }
+        @media (max-width: 767.98px) { .float-call { display: flex; } }
+
+        /* Lightbox */
+        #galleryModal .modal-body { padding: 0; }
+        #galleryModal .btn-close { position: absolute; top: 10px; right: 10px; z-index: 10; background-color: rgba(255,255,255,0.8); }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#offcanvasNavbar" data-bs-offset="80">
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-building me-2"></i>M3M GIC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">M3M GIC Gurgaon</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#apartments">Apartments</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#amenities">Amenities</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="hero-title">Experience Luxury Living at Sector M9</h1>
+                    <p class="hero-subtitle">Premium 2.5, 3.5 & 4.5 BHK Apartments in IMT Manesar, Gurgaon.</p>
+                    <div class="hero-btn-container mt-4">
+                        <a href="tel:+919029332634" class="btn-custom btn-filled"><i class="fas fa-phone-alt me-2"></i> Call Now</a>
+                        <a href="https://wa.me/919029332634" class="btn-custom btn-outline"><i class="fab fa-whatsapp me-2"></i> WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section-padding reveal-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop" alt="Luxury Interior" class="img-fluid about-img" width="800" height="500" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">About M3M GIC</h2>
+                    <p class="lead text-primary-custom fw-bold">Redefining Urban Living</p>
+                    <p>M3M GIC Gurgaon offers an unparalleled lifestyle at Sector M9, IMT Manesar. Designed for those who appreciate the finer things in life, our project blends modern architecture with lush green surroundings.</p>
+                    <p>We offer spacious 2.5, 3.5, and 4.5 BHK apartments equipped with state-of-the-art amenities, ensuring comfort, security, and luxury for you and your family.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i> Prime Location in IMT Manesar</li>
+                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i> World-Class Amenities</li>
+                        <li><i class="fas fa-check-circle text-primary-custom me-2"></i> High Return on Investment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apartments" class="section-padding bg-light reveal-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Apartments</h2>
+                <p>Choose the perfect space for your lifestyle.</p>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="col">
+                    <div class="card service-card">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=500" class="card-img-top service-img" alt="2.5 BHK Apartment" width="500" height="220" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">2.5 BHK Luxury</h5>
+                            <p class="card-text text-muted">Ideal for small families. Includes 2 bedrooms, a study room, and modern fittings.</p>
+                            <span class="price-tag">Ask for Price</span>
+                        </div>
+                        <a href="#contact" class="btn-gradient">Book Now</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card service-card">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=500" class="card-img-top service-img" alt="3.5 BHK Apartment" width="500" height="220" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">3.5 BHK Premium</h5>
+                            <p class="card-text text-muted">Spacious living with 3 bedrooms + servant room. Perfect for growing families.</p>
+                            <span class="price-tag">Ask for Price</span>
+                        </div>
+                        <a href="#contact" class="btn-gradient">Book Now</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card service-card">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=500" class="card-img-top service-img" alt="4.5 BHK Apartment" width="500" height="220" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">4.5 BHK Royale</h5>
+                            <p class="card-text text-muted">Ultra-luxury 4 bedrooms with expansive balconies and premium view.</p>
+                            <span class="price-tag">Ask for Price</span>
+                        </div>
+                        <a href="#contact" class="btn-gradient">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="amenities" class="section-padding reveal-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">World Class Amenities</h2>
+                <p>Designed for your comfort and leisure.</p>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                <div class="col">
+                    <div class="amenity-box">
+                        <i class="fas fa-swimming-pool amenity-icon"></i>
+                        <h5>Swimming Pool</h5>
+                        <p class="small text-muted">Olympic size pool.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="amenity-box">
+                        <i class="fas fa-dumbbell amenity-icon"></i>
+                        <h5>Modern Gym</h5>
+                        <p class="small text-muted">Fully equipped fitness center.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="amenity-box">
+                        <i class="fas fa-car amenity-icon"></i>
+                        <h5>Ample Parking</h5>
+                        <p class="small text-muted">Dedicated covered parking.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="amenity-box">
+                        <i class="fas fa-shield-alt amenity-icon"></i>
+                        <h5>24/7 Security</h5>
+                        <p class="small text-muted">CCTV & Manned Security.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section-padding bg-light reveal-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Project Gallery</h2>
+                <p>Glimpses of your future home.</p>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+                <div class="col"><div class="gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=500" alt="Living Room" width="500" height="250" loading="lazy"></div></div>
+                <div class="col"><div class="gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=500" alt="Bedroom" width="500" height="250" loading="lazy"></div></div>
+                <div class="col"><div class="gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1484154218962-a1c00207099b?q=80&w=500" alt="Kitchen" width="500" height="250" loading="lazy"></div></div>
+                <div class="col"><div class="gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?q=80&w=500" alt="Exterior View" width="500" height="250" loading="lazy"></div></div>
+                <div class="col"><div class="gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=500" alt="Pool View" width="500" height="250" loading="lazy"></div></div>
+                <div class="col"><div class="gallery-item" onclick="openLightbox(this)"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=500" alt="Lobby" width="500" height="250" loading="lazy"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section-padding reveal-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Client Testimonials</h2>
+            </div>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="testimonial-card">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="t-img" width="70" height="70" loading="lazy">
+                                    <h5 class="fw-bold">Rajiv Sharma</h5>
+                                    <p class="text-muted small">Resident</p>
+                                    <p class="fst-italic small">"The build quality is exceptional. The location at IMT Manesar is perfect for my commute."</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 d-none d-md-block">
+                                <div class="testimonial-card">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="t-img" width="70" height="70" loading="lazy">
+                                    <h5 class="fw-bold">Priya Singh</h5>
+                                    <p class="text-muted small">Investor</p>
+                                    <p class="fst-italic small">"M3M always delivers luxury. This project has given me great rental returns already."</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 d-none d-lg-block">
+                                <div class="testimonial-card">
+                                    <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Client" class="t-img" width="70" height="70" loading="lazy">
+                                    <h5 class="fw-bold">Vikram Malhotra</h5>
+                                    <p class="text-muted small">Resident</p>
+                                    <p class="fst-italic small">"Amenities are top-notch. The clubhouse and gym are my favorite places to relax."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-padding bg-light reveal-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">FAQ</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Where is the project located?</button></h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">It is located at Sector M9, IMT Manesar, Gurgaon, offering excellent connectivity.</div></div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">What are the apartment configurations?</button></h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">We offer premium 2.5 BHK, 3.5 BHK, and 4.5 BHK apartments.</div></div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Is financing available?</button></h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes, we have tie-ups with all major banks for easy home loan processing.</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-container reveal-section">
+        <iframe title="Map Location" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.395777726484!2d76.9355!3d28.3572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3d6360000001%3A0x0!2sSector%20M9%2C%20IMT%20Manesar!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <section id="contact" class="nap-section reveal-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4"><div class="nap-item"><div class="nap-icon-wrapper"><i class="fas fa-building"></i></div><div class="nap-content"><h5>Project Name</h5><p>M3M GIC Gurgaon</p></div></div></div>
+                <div class="col-md-6 mb-4"><div class="nap-item"><div class="nap-icon-wrapper"><i class="fas fa-phone-alt"></i></div><div class="nap-content"><h5>Phone Number</h5><a href="tel:+919029332634" class="highlight-phone">+91 90293 32634</a></div></div></div>
+                <div class="col-md-6 mb-4"><div class="nap-item"><div class="nap-icon-wrapper"><i class="fas fa-map-marker-alt"></i></div><div class="nap-content"><h5>Address</h5><p>Sector M9, IMT Manesar, Gurgaon</p></div></div></div>
+                <div class="col-md-6 mb-4"><div class="nap-item"><div class="nap-icon-wrapper"><i class="fas fa-envelope"></i></div><div class="nap-content"><h5>Email</h5><a href="mailto:info@m3mgic.com">info@m3mgic.com</a></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer text-center">
+        <div class="container">
+            <p class="mb-0">© 2023 M3M GIC Gurgaon. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a href="tel:+919029332634" class="float-btn float-call"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://wa.me/919029332634" class="float-btn float-wa"><i class="fab fa-whatsapp"></i></a>
+
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body text-center">
+                    <img src="" class="img-fluid rounded" id="galleryModalImage" alt="Gallery Fullscreen">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Intersection Observer for Animation & Lazy Map
+        document.addEventListener("DOMContentLoaded", function () {
+            const revealElements = document.querySelectorAll(".reveal-section");
+            const mapIframe = document.querySelector(".map-container iframe");
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        if (entry.target.classList.contains("map-container") && mapIframe.dataset.src) {
+                            mapIframe.src = mapIframe.dataset.src;
+                            mapIframe.removeAttribute("data-src");
+                        }
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, threshold: 0.1, rootMargin: "50px" });
+
+            revealElements.forEach(el => observer.observe(el));
+        });
+
+        // Lightbox
+        function openLightbox(element) {
+            document.getElementById('galleryModalImage').src = element.querySelector('img').src;
+            new bootstrap.Modal(document.getElementById('galleryModal')).show();
+        }
+
+        // Auto-close Offcanvas
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) {
+                    const bsOffcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasNavbar'));
+                    if(bsOffcanvas) bsOffcanvas.hide();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
